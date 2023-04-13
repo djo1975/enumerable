@@ -1,18 +1,17 @@
-# Create a module MyEnumerable
 module MyEnumerable
   def all?
-    each { |arg| return false unless yield(arg) }
+    each { |e| return false unless yield e }
     true
   end
 
   def any?
-    each { |arg| return true if yield(arg) }
+    each { |e| return true if yield e }
     false
   end
 
   def filter
-    res = []
-    each { |arg| res << arg if yield(arg) }
-    res
+    result = []
+    each { |e| result << e if yield e }
+    result
   end
 end
